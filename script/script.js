@@ -44,3 +44,13 @@ var map = new mapboxgl.Map({
 });
 // het toevoegen van een bedieningspaneel
 map.addControl(new mapboxgl.NavigationControl());
+
+
+// zoekbalk toevoegen
+map.addControl(
+  new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  }),
+  'top-left'
+);
