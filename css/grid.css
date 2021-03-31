@@ -1,0 +1,109 @@
+.grid-container{
+  display: grid;
+  grid-gap: 3vw;
+  grid-template-columns:1fr 1fr;
+
+  grid-template-areas:
+  "logo logo"
+  "title title"
+  "invoer invoer"
+  "plaats plaats"
+  "landen landen"
+  "graden weer"
+  "locatie locatie";
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.grid-itemlogo{
+  grid-area:logo;
+}
+.grid-itemtitle{
+  grid-area:title;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.grid-item1{
+  grid-area:invoer;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.grid-item2{
+  grid-area:landen;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.grid-item3{
+  grid-area:plaats;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.grid-item4{
+  grid-area:graden;
+  margin-left: 5vw;
+  margin-right:5vw;
+}
+.grid-item5{
+  grid-area:weer;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.grid-item6{
+  grid-area:locatie;
+  margin-left: 5vw;
+  margin-right:5vw;
+}
+
+/* tablet */
+@media only screen and (min-width: 834px) and (max-width:1279px){
+ .grid-container {
+    display: grid;
+    grid-gap:3vw;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+    "logo logo"
+    "title title"
+    "invoer invoer"
+    "plaats plaats"
+    "landen landen"
+    "locatie graden"
+    "locatie weer";
+
+  }
+}
+
+/* kleine desktop */
+@media only screen and (min-width: 1280px) and (max-width:1919px){
+  .grid-container {
+       display: grid;
+       grid-gap:1vw;
+       grid-template-columns: 1fr 1fr;
+
+       grid-template-areas:
+       "logo logo"
+       "title title"
+       "invoer plaats"
+       "landen weer"
+       "locatie graden";
+     }
+}
+
+/* grote desktop */
+@media only screen and (min-width: 1920px) {
+  .grid-container {
+     display: grid;
+     grid-gap:3vw;
+     grid-template-columns: 1fr 1fr 2fr;
+
+     grid-template-areas:
+     "logo logo logo"
+     "title title title"
+     "invoer invoer locatie"
+     "plaats plaats locatie"
+     "landen landen locatie"
+     "weer graden locatie";
+   }
+
+}

@@ -1,0 +1,137 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+/* body {
+    position:relative;
+    width:1440px;
+    height:auto;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    display:block;
+} */
+body::after {
+    content: "";
+    background-image: url('images/earthtelefoon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    opacity:0.43;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+h1{
+	color:white;
+	font-family: 'Kefa', arial, sans-serif;
+}
+.grid-item2, .grid-item3, .grid-item4, .grid-item5{
+	background-color: white;
+}
+h1#title{
+	font-size: 5vw;
+	text-align: center;
+	text-shadow: 1px 1px 7px #332E33;
+}
+#spacelogo{
+	width: 50vw;
+	height: auto;
+	margin:2vw;
+}
+#map {
+  height: 30vh;
+  width: 90vw;
+}
+
+#graden, #beschrijvingweer {
+	background-color:white;
+	/* width: 60px;
+	padding: 6px; */
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+@media only screen and (min-width: 834px) and (max-width:1279px){
+	#spacelogo{
+		width: 40vw;
+		height: auto;
+		margin:3vw 0vw 0vw 3vw;
+	}
+	h1#title{
+		font-size: 5vw;
+		text-align:center;
+		margin:3vw 3vw 0vw 0vw;
+	}
+	#map {
+	  height: 30vh;
+	  width: 45vw;
+	}
+	body::after {
+	    background-image: url('images/earthtablet.jpg');
+	    background-size: 100%;
+	    top:0;
+	    left: 0;
+	    bottom: 0;
+	    right: 0;
+	    z-index: -1;
+	}
+}
+@media only screen and (min-width: 1280px) and (max-width:1919px){
+	#spacelogo{
+		width: 25vw;
+		height: auto;
+		margin:0vw 0vw 0vw 0vw;
+	}
+	h1#title{
+		font-size: 3vw;
+		text-align:center;
+		margin:1.5vw -3vw 0vw 0vw;
+	}
+	#map {
+	  height: 50vh;
+	  width: 45vw;
+	}
+	body::after {
+	    background-image: url('images/earth1280.jpg');
+	    background-size: 100%;
+	    top:0;
+	    left: 0;
+	    bottom: 0;
+	    right: 0;
+	    z-index: -1;
+	}
+}
+@media only screen and (min-width: 1920px) {
+	#spacelogo{
+		width: 27vw;
+		height: auto;
+		margin:1.5vw 0vw 0vw 3vw;
+	}
+	h1#title{
+		font-size: 3.7vw;
+		text-align:center;
+		margin:1.5vw -3vw 0vw 0vw;
+	}
+	#map {
+	  height: 50vh;
+	  width: 45vw;
+	}
+	body::after {
+	    background-image: url('images/earth.jpg');
+	    background-size: 100%;
+	    top:0;
+	    left: 0;
+	    bottom: 0;
+	    right: 0;
+	    z-index: -1;
+	}
+}

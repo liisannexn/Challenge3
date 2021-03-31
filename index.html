@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Road to earth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="">
+    <!-- alle css -->
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/lettertype.css">
+      <!-- alle js-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="script/script.js" defer></script>
+  </head>
+  <body>
+      <div class="grid-container">
+
+        <div class="grid-itemlogo">
+          <img src="css/images/SpaceX-Logo.png" alt="SpaceX logo" id="spacelogo">
+        </div>
+
+        <div class="grid-itemtitle">
+          <h1 id="title">Dashboard road to earth<h1>
+        </div>
+
+        <div class="grid-item1">
+          <p id="waar">Waar wil je landen?<p>
+          <input type="text" id="city">
+          <input type="button" id="cityButton" value="weer van deze stad">
+      </div>
+
+        <div class="grid-item2">
+          <p> is het handig om hier te landen?</p>
+        </div>
+
+        <div class="grid-item3">
+          <p> naam van de landingsplek door middel van innerhtml</p>
+        </div>
+
+        <div class="grid-item4">
+          <!-- weersomstandigheden  -->
+          <article id="graden">Aantal graden</article>
+        </div>
+
+        <div class="grid-item5">
+          <!-- hoeveel graden het is  -->
+          <article id="beschrijvingweer">Weersomstandigheden</article>
+        </div>
+
+        <div class="grid-item6">
+            <!-- het weergeven van de kaart op de website -->
+            <div id="map"></div>
+        </div>
+
+    </div>
+  </body>
+</html>
