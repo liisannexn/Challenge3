@@ -10,7 +10,8 @@
   "plaats plaats"
   "landen landen"
   "graden weer"
-  "locatie locatie";
+  "locatie locatie"
+  "credits credits";
 }
 body{
   margin: 0;
@@ -36,6 +37,7 @@ body{
 }
 .grid-item3{
   grid-area:plaats;
+  margin-top: 4vh;
   margin-left: 5vw;
   margin-right: 5vw;
 }
@@ -54,24 +56,55 @@ body{
   margin-left: 5vw;
   margin-right:5vw;
 }
+.grid-item7{
+  grid-area: credits;
+}
 
 /* tablet */
 @media only screen and (min-width: 834px) and (max-width:1279px){
  .grid-container {
     display: grid;
-    grid-gap:3vw;
+    grid-gap:1vw;
     grid-template-columns: 1fr 1fr;
 
     grid-template-areas:
     "logo logo"
     "title title"
     "invoer invoer"
-    "plaats plaats"
-    "landen landen"
+    "plaats landen"
     "locatie graden"
-    "locatie weer";
-
+    "locatie weer"
+    "credits credits";
   }
+  /*invoer*/
+  .grid-item1{
+    margin-right: 0vw;
+    }
+  /*landen*/
+  .grid-item2{
+    margin-top: 3vh;
+    margin-left: 0vw;
+    }
+  /*plaats*/
+  .grid-item3{
+    margin-top: 3vh;
+    margin-right:0vw;
+    }
+  /*graden*/
+  .grid-item4{
+    margin-top: 5vh;
+    margin-left: 0vw;
+    }
+ /* weeer*/
+  .grid-item5{
+    margin-top:5vh;
+    margin-left: 0vw;
+      }
+      /* locatie */
+  .grid-item6{
+    margin-top: 5vh;
+    margin-right:0vw;
+    }
 }
 
 /* kleine desktop */
@@ -86,15 +119,44 @@ body{
        "title title"
        "invoer plaats"
        "landen weer"
-       "locatie graden";
+       "locatie graden"
+       "credits credits";
      }
+     /*invoer*/
+   .grid-item1{
+     margin-left: 5vw;
+     margin-right: 0vw;
+   }
+     /*landen*/
+   .grid-item2{
+     margin-top: 3vh;
+     margin-left: 5vw;
+     margin-right: 0vw;
+   }
+     /*plaats*/
+   .grid-item3{
+     margin-top: 3vh;
+     margin-left: 0vw;
+   }
+     /*graden*/
+   .grid-item4{
+     margin-left: 0vw;
+   }
+    /* weeer*/
+   .grid-item5{
+     margin-left: 0vw;
+   }
+   /* locatie */
+   .grid-item6{
+     margin-right:0vw;
+   }
 }
 
 /* grote desktop */
 @media only screen and (min-width: 1920px) {
   .grid-container {
      display: grid;
-     grid-gap:3vw;
+     grid-gap:1vw;
      grid-template-columns: 1fr 1fr 2fr;
 
      grid-template-areas:
@@ -105,5 +167,30 @@ body{
      "landen landen locatie"
      "weer graden locatie";
    }
-
+   /*invoer*/
+ .grid-item1{
+   margin-left: 5vw;
+   margin-right: 0vw;
+ }
+   /*landen*/
+ .grid-item2{
+   margin-left: 5vw;
+   margin-right: 0vw;
+ }
+   /*plaats*/
+ .grid-item3{
+   margin-right: 0vw;
+ }
+   /*graden*/
+ .grid-item4{
+   margin-right: 0vw;
+ }
+  /* weeer*/
+ .grid-item5{
+   margin-right: 0vw;
+ }
+ /* locatie */
+ .grid-item6{
+   margin-right:5vw;
+ }
 }

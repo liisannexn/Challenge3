@@ -16,6 +16,13 @@
     <!-- geocoder -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" />
+
+    <!-- geocoder without a map -->
+    <!-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> -->
   </head>
   <body>
       <div class="grid-container">
@@ -30,21 +37,24 @@
 
         <div class="grid-item1">
           <p id="waar">Waar wil je landen?<p>
-          <input type="text" id="city">
-          <input type="button" id="cityButton" value="weer van deze stad">
+          <div id="geocoder" class="geocoder"></div>
+          <!-- <input type="text" id="city">
+          <input type="button" id="cityButton" value="weer van deze stad"> -->
+          <!-- <div id="geocoder"></div>
+          <pre id="result"></pre> -->
       </div>
 
         <div class="grid-item2">
-          <p> is het handig om hier te landen?</p>
+          <p id="handig"> is het handig om hier te landen?</p>
         </div>
 
         <div class="grid-item3">
-          <p> naam van de landingsplek door middel van innerhtml</p>
+          <article id="naamPlek"> Naam landingsplek</article>
         </div>
 
         <div class="grid-item4">
           <!-- weersomstandigheden  -->
-          <article id="graden">Aantal graden</article>
+          <article id="graden">&#730;C</article>
         </div>
 
         <div class="grid-item5">
@@ -55,6 +65,11 @@
         <div class="grid-item6">
             <!-- het weergeven van de kaart op de website -->
             <div id="map"></div>
+            <!-- <div id="coord§inaten">hier komt coordinaat</div> -->
+        </div>
+
+        <div class="grid-item7">
+          <div id="credit">Made by Lisanne Nederpelt</div>
         </div>
 
     </div>
