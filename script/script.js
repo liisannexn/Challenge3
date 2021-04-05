@@ -1,7 +1,7 @@
-// mijn eigen api token
+// mijn eigen api token toegevoegd
 mapboxgl.accessToken = 'pk.eyJ1IjoibGlpc2FubmV4biIsImEiOiJja21sdHEwbWcxZXA2MnBxa3B6dnlmZW1yIn0.-qRDEZ9CxsE5S4_x2q9r1w';
 
-// variabele met gegevens over de map
+// variabele met gegevens over mijn map
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/liisannexn/ckmlxung61lsm17lyexp8p929',
@@ -11,67 +11,78 @@ var map = new mapboxgl.Map({
   pitch: 56,
   bearing: -18,
 });
-// het toevoegen van een bedieningspaneel
+
+// het toevoegen van een bedieningspaneel aan de map
 map.addControl(new mapboxgl.NavigationControl());
 
-//geocoder in een losse var
+//het toevoegen van een zoekbalk door deze in een losse varte zetten
 var geocoder = new MapboxGeocoder({
 	accessToken: mapboxgl.accessToken,
 	mapboxgl: mapboxgl
 })
 
+// zet de geocoder op een plaats naar keuze op de pagina.
 document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 
-// // het toeveogen van een zoekbalk
-// map.addControl( geocoder, 'top-left');
-
+// code waarmee ik de api's aan elkaar wil koppelen
+// wanneer je een plaats intypt worden alle gegevens van die plaats
+// op de website weergegeven
 map.on('load', function () {
-	// Listen for the `geocoder.input` event that is triggered when a user
-	// makes a selection
+
 	geocoder.on('result', function (ev) {
-		console.log(ev.result.center);
-		//document.getElementById('coordinaten').innerHTML = ev.result.center[0]+ '-' + ev.result.center[1];
+		// console.log(ev.result.center);
 		getAPIdata(ev.result.center[0], ev.result.center[1]);
+    // getAPIdataTwee(ev.result.center[0], ev.result.center[1]);
 		});
 	});
 
 
-	//functie om het weer in een stad te zien
-	function getAPIdata(ingevoerdeLon, ingevoerdeLat) {
-		// var city = document.getElementById('city').value;
-		var request = 'https://api.openweathermap.org/data/2.5/weather?appid=98abf897ca9d44ac264037787f4a13ea&lang=nl&lon=' +ingevoerdeLon+ '&lat=' +ingevoerdeLat;
-		// var request = 'https://api.openweathermap.org/data/2.5/weather?appid=98abf897ca9d44ac264037787f4a13ea&q=' + city;
+// Functie waarmee ik informatie vanuit de api van OPEN WEATHERMAP op de website kan zetten.
+	function getAPIdata(lon, lat) {
+    // De api die ik wil + de ingevoerde lon en lat aka coordinates (die de gebruiker zelf invoerd).
+		var aanvraag = 'https://api.openweathermap.org/data/2.5/weather?appid=98abf897ca9d44ac264037787f4a13ea&lang=nl&lon=' +lon+ '&lat=' +lat;
+    // +'&units=imperial'
 
-		fetch(request).then(function(response) {
-
-			return response.json();
+    // aanvraag om mij informatie te geven vanuit de api
+    // en doe dan iets met het antwoord van de aanvraag
+		fetch(aanvraag).then(function(antwoord) {
+        // interpeteer het alsof het een javascript object notatie is
+			return antwoord.json();
 		})
+	// en dan gaan we iets doen met het antwoord
+		.then(function(antwoord) {
 
-		.then(function(response) {
-			//het aantal graden krijgen
-			console.log(response.main.temp - 273.15);
+			// Toon het aantal graden (het weer) op mijn website
+			var weerBox = document.getElementById('graden');
+			weerBox.innerHTML = (antwoord.main.temp - 273.15).toFixed(1) + ' &#730;C <br>';
+      // weerBox.innerHTML = (antwoord.main.temp).toFixed(1) + ' &#730;C <br>';
 
-			// hiermee kan je het weer tonen op de website
-			var weatherBox = document.getElementById('graden');
-			weatherBox.innerHTML = (response.main.temp - 273.15).toFixed(1) + ' &#730;C <br>';
+	    // Toon de weersbeschrijving op mijn website
+	    var beschrijvingweerBox = document.getElementById('beschrijvingweer');
+	    beschrijvingweerBox.innerHTML = antwoord.weather[0].description;
 
-	    //hiermee kan je de beschrijving van het weer tonen op mijn website
-	    var weatherBox = document.getElementById('beschrijvingweer');
-	    weatherBox.innerHTML = response.weather[0].description;
+  	   // Toon de plaatsnaam op mijn website
+			var naamlocatieBox = document.getElementById('naamPlek');
+			naamlocatieBox.innerHTML = antwoord.name;
 
-			//het tonen van de plaatsnaam op mijn website
-			var weatherBox = document.getElementById('naamPlek');
-			weatherBox.innerHTML = response.name;
+      var windSpeedBox = document.getElementById('handig');
+      windSpeedBox  = antwoord.clouds.all;
+        // windSpeedBox  = antwoord.wind.speed;
 
+            if (windSpeedBox < 50){
+              // windSpeedBox  = 'je kan hier landen' + 'de windsnelheid is'+ antwoord.wind.speed;
+              // console.log ('de windsnelheid is goed')
+              document.getElementById("handig").innerHTML = 'Het is ' + windSpeedBox + '%' + ' bewolkt.' + ' Het is mogelijk om hier te landen.';
+            } else if (windspeedBox => 51){
+              document.getElementById("handig").innerHTML = 'Het is ' + windSpeedBox + '%' + ' bewolkt.' + ' Het is NIET aan te raden om op deze plek te landen.';
+            }
 		});
 	}
 
 
+
+
+
+// popup
 	// hier komt nog een functie met het tonen of je hier wel kan landen. Onder 7 graden niet landen. boven 30 graden niet landen.
-
-
-
-
-//
-// random code voor losse zoekbalk
