@@ -63,7 +63,7 @@ map.on('load', function () {
       // vanaf 8.1 tot 14 graden oranje en vanaf 14.1 graden rood
       if (antwoord.main.temp - 273.15.toFixed(1) < 8){
         //blauw = het is koud
-         document.getElementById('graden').style.color = '#0D9EDE';
+         document.getElementById('graden').style.color = '#0065DE';
       }
       else if (antwoord.main.temp - 273.15.toFixed(1) >= 8.1 && antwoord.main.temp - 273.15.toFixed(1) <= 14){
         //oranje = het is niet te koud en niet te warm
