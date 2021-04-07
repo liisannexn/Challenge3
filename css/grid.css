@@ -10,8 +10,7 @@
   "plaats plaats"
   "landen landen"
   "graden weer"
-  "locatie locatie"
-  "credits credits";
+  "locatie locatie";
 }
 body{
   margin: 0;
@@ -55,9 +54,6 @@ body{
   margin-left: 5vw;
   margin-right:5vw;
 }
-.grid-item7{
-  grid-area: credits;
-}
 
 /* tablet */
 @media only screen and (min-width: 834px) and (max-width:1279px){
@@ -72,8 +68,7 @@ body{
     "invoer invoer"
     "plaats landen"
     "locatie graden"
-    "locatie weer"
-    "credits credits";
+    "locatie weer";
   }
   /*invoer*/
   .grid-item1{
@@ -119,8 +114,7 @@ body{
        "title title"
        "invoer landen"
        "plaats graden"
-       "locatie weer"
-       "credits credits";
+       "locatie weer";
      }
      /*invoer*/
    .grid-item1{
@@ -168,8 +162,7 @@ body{
      "invoer invoer locatie"
      "plaats plaats locatie"
      "landen landen locatie"
-     "weer graden locatie"
-     "credits credits credits";
+     "weer graden locatie";
    }
    /*invoer*/
  .grid-item1{
