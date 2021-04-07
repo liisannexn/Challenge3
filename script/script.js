@@ -5,7 +5,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibGlpc2FubmV4biIsImEiOiJja21sdHEwbWcxZXA2MnBxa
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/liisannexn/ckmlxung61lsm17lyexp8p929',
-	// style: 'mapbox://styles/liisannexn/ckmz0q1vw2c9i17p1oi515bu6',
   center: [4.215827, 52.012234],
   zoom: 13,
   pitch: 56,
@@ -42,7 +41,6 @@ map.on('load', function () {
 	function getAPIdata(lon, lat) {
     // De api die ik wil + de ingevoerde lon en lat aka coordinates (die de gebruiker zelf invoerd).
 		var aanvraag = 'https://api.openweathermap.org/data/2.5/weather?appid=98abf897ca9d44ac264037787f4a13ea&lang=nl&lon=' +lon+ '&lat=' +lat;
-    // +'&units=imperial'
 
     // aanvraag om mij informatie te geven vanuit de api
     // en doe dan iets met het antwoord van de aanvraag
@@ -61,24 +59,18 @@ map.on('load', function () {
 			var weerBox = document.getElementById('graden');
 			weerBox.innerHTML = (antwoord.main.temp - 273.15).toFixed(1) + ' &#730;C <br>';
 
-      //kleuren bij elke temperatuur.
-      // tot 8 graden blauw
-      // vanaf 8.1 tot 14 graden oranje
-      // vanaf 14.1 graden rood
-
+      //kleuren bij elke temperatuur. tot 8 graden blauw
+      // vanaf 8.1 tot 14 graden oranje en vanaf 14.1 graden rood
       if (antwoord.main.temp - 273.15.toFixed(1) < 8){
         //blauw = het is koud
          document.getElementById('graden').style.color = '#0D9EDE';
       }
-      //oranje
       else if (antwoord.main.temp - 273.15.toFixed(1) >= 8.1 && antwoord.main.temp - 273.15.toFixed(1) <= 14){
         //oranje = het is niet te koud en niet te warm
-        // moskou
          document.getElementById('graden').style.color = '#F4750F';
       }
       else if (antwoord.main.temp - 273.15.toFixed(1) >= 14.1){
         //rood = het is warm
-        // kreta
          document.getElementById('graden').style.color = '#E82A05';
       }
 		});
@@ -87,11 +79,7 @@ map.on('load', function () {
 
   //Functie waarmee ik informatie vanuit de api van WEERLIVE op de website kan zetten.
   	function getAPIdataTwee(lon, lat) {
-      // De api die ik wil + de ingevoerde lon en lat aka coordinates (die de gebruiker zelf invoerd).
-      var  stad  =  document.getElementById('geocoder').value ;
-      var aanvraag= 'https://weerlive.nl/api/json-data-10min.php?key=562fb057ad&locatie='  + stad;
-      var aanvraag= 'https://weerlive.nl/api/json-data-10min.php?key=562fb057ad&locatie='  + stad;
-
+      var aanvraag= 'https://weerlive.nl/api/json-data-10min.php?key=562fb057ad&locatie='+lat+','+lon;
       // aanvraag om mij informatie te geven vanuit de api
       // en doe dan iets met het antwoord van de aanvraag
   		fetch(aanvraag).then(function(antwoord) {
@@ -109,20 +97,12 @@ map.on('load', function () {
         var windSpeedBox = document.getElementById('handig');
         windSpeedBox  = antwoord.liveweer[0].windkmh;
 
-              //weergeven of je hier kan landen
-              if (windSpeedBox < 50){
-                document.getElementById("handig").innerHTML = 'De windkracht is ' + windSpeedBox + ' km/h.' + ' Het is mogelijk om hier te landen.';
-              } else if (windspeedBox => 51){
-                document.getElementById("handig").innerHTML = 'De windkracht is ' + windSpeedBox + ' km/h.' + ' De wind is te hard. Het is NIET aan te raden om op deze plek te landen.';
-              }
-
-            // // Toon de weersbeschrijving op mijn website
-            // var beschrijvingweerBox = document.getElementById('kanszon');
-            // beschrijvingweerBox.innerHTML = antwoord.liveweer[0].gtemp;
-
-
+          //weergeven of je hier kan landen
+        if (windSpeedBox < 26){
+          document.getElementById("handig").innerHTML = 'De windkracht is ' + windSpeedBox + ' km/h.' + ' Het is mogelijk om hier te landen.';
+        } else if (windspeedBox => 27){
+          document.getElementById("handig").innerHTML = 'De windkracht is ' + windSpeedBox + ' km/h.' + ' De wind is te hard. Het is NIET aan te raden om op deze plek te landen.';
+        }
       });
     }
-
-// popup
-	// hier komt nog een functie met het tonen of je hier wel kan landen. Onder 7 graden niet landen. boven 30 graden niet landen.
+//popup
