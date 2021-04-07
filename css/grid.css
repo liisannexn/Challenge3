@@ -28,17 +28,16 @@ body{
 .grid-item1{
   grid-area:invoer;
   margin-left: 5vw;
-  margin-right: 5vw;
 }
 .grid-item2{
   grid-area:landen;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  width:60%;
 }
 .grid-item3{
   grid-area:plaats;
-  margin-top: 4vh;
-  margin-left: 5vw;
+  margin-top: -3vh;
   margin-right: 5vw;
 }
 .grid-item4{
@@ -84,6 +83,7 @@ body{
   .grid-item2{
     margin-top: 3vh;
     margin-left: 0vw;
+      width:90%;
     }
   /*plaats*/
   .grid-item3{
@@ -102,7 +102,7 @@ body{
       }
       /* locatie */
   .grid-item6{
-    margin-top: 5vh;
+    margin-top: 2vh;
     margin-right:0vw;
     }
 }
@@ -117,38 +117,40 @@ body{
        grid-template-areas:
        "logo logo"
        "title title"
-       "invoer plaats"
-       "landen weer"
-       "locatie graden"
+       "invoer landen"
+       "plaats graden"
+       "locatie weer"
        "credits credits";
      }
      /*invoer*/
    .grid-item1{
      margin-left: 5vw;
      margin-right: 0vw;
+     margin-top: -2vh;
    }
      /*landen*/
    .grid-item2{
-     margin-top: 3vh;
-     margin-left: 5vw;
-     margin-right: 0vw;
+     margin-top: 5vh;
+     margin-left: -10vw;
+     margin-right: 5vw;
    }
      /*plaats*/
    .grid-item3{
-     margin-top: 3vh;
-     margin-left: 0vw;
+     margin-top: 0vh;
+     margin-left: 5vw;
    }
      /*graden*/
    .grid-item4{
      margin-left: 0vw;
    }
-    /* weeer*/
+    /* weer*/
    .grid-item5{
      margin-left: 0vw;
    }
    /* locatie */
    .grid-item6{
-     margin-right:0vw;
+     margin-right:5vw;
+     margin-top:-14vh;
    }
 }
 
@@ -157,7 +159,7 @@ body{
   .grid-container {
      display: grid;
      grid-gap:1vw;
-     grid-template-columns: 1fr 1fr 2fr;
+     grid-template-columns: 1fr 1fr 1fr;
 
      grid-template-areas:
      "logo logo logo"
@@ -165,7 +167,8 @@ body{
      "invoer invoer locatie"
      "plaats plaats locatie"
      "landen landen locatie"
-     "weer graden locatie";
+     "weer graden locatie"
+     "credits credits credits";
    }
    /*invoer*/
  .grid-item1{
@@ -180,17 +183,20 @@ body{
    /*plaats*/
  .grid-item3{
    margin-right: 0vw;
+   margin-top: 0vh;
+   margin-left:5vw;
  }
    /*graden*/
  .grid-item4{
    margin-right: 0vw;
  }
-  /* weeer*/
+  /* weer*/
  .grid-item5{
    margin-right: 0vw;
  }
  /* locatie */
  .grid-item6{
    margin-right:5vw;
+   margin-top: 5vh;
  }
 }
