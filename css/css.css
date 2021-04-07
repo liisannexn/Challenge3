@@ -176,6 +176,8 @@ article#naamPlek{
 	    }
 	.mapboxgl-ctrl-geocoder {
 				 width: 100%;
+				 height:40px;
+				padding: 2px 4px  3px  3px;
 		 }
 	article{
 		font-size: 1.5vw;

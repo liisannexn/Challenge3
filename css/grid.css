@@ -83,7 +83,7 @@ body{
   .grid-item2{
     margin-top: 3vh;
     margin-left: 0vw;
-      width:90%;
+    width:90%;
     }
   /*plaats*/
   .grid-item3{
@@ -133,6 +133,7 @@ body{
      margin-top: 5vh;
      margin-left: -10vw;
      margin-right: 5vw;
+     width:110%;
    }
      /*plaats*/
    .grid-item3{
@@ -179,6 +180,7 @@ body{
  .grid-item2{
    margin-left: 5vw;
    margin-right: 0vw;
+   width:100%;
  }
    /*plaats*/
  .grid-item3{

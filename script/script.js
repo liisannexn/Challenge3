@@ -33,8 +33,7 @@ map.on('load', function () {
 	geocoder.on('result', function (ev) {
 		// console.log(ev.result.center);
 		getAPIdata(ev.result.center[0], ev.result.center[1]);
-    // getAPIdataTwee(ev.result.center[0], ev.result.center[1]);
-    getAPIdataDrie(ev.result.center[0], ev.result.center[1]);
+    getAPIdataTwee(ev.result.center[0], ev.result.center[1]);
 		});
 	});
 
@@ -87,10 +86,11 @@ map.on('load', function () {
 
 
   //Functie waarmee ik informatie vanuit de api van WEERLIVE op de website kan zetten.
-  	function getAPIdataDrie(lon, lat) {
+  	function getAPIdataTwee(lon, lat) {
       // De api die ik wil + de ingevoerde lon en lat aka coordinates (die de gebruiker zelf invoerd).
       var  stad  =  document.getElementById('geocoder').value ;
-      	var aanvraag= 'https://weerlive.nl/api/json-data-10min.php?key=562fb057ad&locatie='  + stad;
+      var aanvraag= 'https://weerlive.nl/api/json-data-10min.php?key=562fb057ad&locatie='  + stad;
+      var aanvraag= 'https://weerlive.nl/api/json-data-10min.php?key=562fb057ad&locatie='  + stad;
 
       // aanvraag om mij informatie te geven vanuit de api
       // en doe dan iets met het antwoord van de aanvraag
